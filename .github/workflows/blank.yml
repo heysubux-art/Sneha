@@ -1,0 +1,225 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sneha ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#ffeef4;
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.container{
+text-align:center;
+padding:20px;
+}
+
+h1{
+font-size:2rem;
+color:#ff4d88;
+margin-bottom:15px;
+}
+
+p{
+color:#555;
+margin-bottom:25px;
+}
+
+.buttons{
+position:relative;
+height:120px;
+}
+
+button{
+padding:15px 35px;
+border:none;
+border-radius:15px;
+font-size:20px;
+cursor:pointer;
+transition:0.3s;
+}
+
+#yesBtn{
+background:#ff4d88;
+color:white;
+margin-right:15px;
+}
+
+#noBtn{
+background:white;
+color:#333;
+position:absolute;
+}
+
+#success{
+display:none;
+animation:fadeIn 1s;
+}
+
+#success h1{
+font-size:3rem;
+}
+
+.bear{
+width:250px;
+border-radius:15px;
+margin-top:20px;
+}
+
+.heart{
+position:absolute;
+font-size:24px;
+animation:float 6s linear infinite;
+color:#ff4d88;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+</style>
+</head>
+<body>
+
+<div id="question" class="container">
+<h1>Sneha, will you forever be mine? 💖</h1>
+<p>You only have one correct answer 😜</p>
+
+<div class="buttons">
+<button id="yesBtn">Yes 💕</button>
+<button id="noBtn">No 🙈</button>
+</div>
+</div>
+
+<div id="success" class="container">
+<h1>Yayy! You said YES! 💘</h1>
+<p>Knew you'd say yes 😉</p>
+
+<img
+class="bear"
+src="https://media.tenor.com/0AVbKGY_MxMAAAAC/bear-hug.gif"
+alt="Bear Hug">
+
+<p style="margin-top:20px;font-size:22px;color:#ff4d88;">
+You just made me the happiest person alive ❤️✨
+</p>
+</div>
+
+<script>
+
+let yesBtn = document.getElementById("yesBtn");
+let noBtn = document.getElementById("noBtn");
+
+let size = 1;
+
+function moveNoButton(){
+
+let x = Math.random() * (window.innerWidth - 150);
+let y = Math.random() * (window.innerHeight - 100);
+
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
+
+size += 0.15;
+yesBtn.style.transform = `scale(${size})`;
+}
+
+noBtn.addEventListener("mouseover", moveNoButton);
+noBtn.addEventListener("click", moveNoButton);
+
+yesBtn.addEventListener("click", function(){
+
+document.getElementById("question").style.display="none";
+document.getElementById("success").style.display="block";
+
+createHearts();
+
+});
+
+function createHearts(){
+
+setInterval(() => {
+
+let heart = document.createElement("div");
+
+heart.classList.add("heart");
+heart.innerHTML = "❤️";
+
+heart.style.left = Math.random()*100 + "vw";
+heart.style.fontSize = (20 + Math.random()*30) + "px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+},300);
+
+}
+
+</script>
+
+</body>
+</html>
